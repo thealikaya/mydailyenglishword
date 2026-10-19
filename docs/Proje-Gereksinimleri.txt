@@ -1,0 +1,1186 @@
+Bana mobil öncelikli, modern ve uygulama hissi veren bir **“Her Gün 1 İngilizce Kelime”** web sitesi/PWA oluştur.
+
+# ANA AMAÇ
+
+Bu sitenin amacı kullanıcının her gün seçtiği bir konu üzerinden **1 yeni İngilizce kelime öğrenmesini** sağlamak.
+
+Kullanıcı önce bir konu seçecek.
+
+Örneğin:
+
+- Günlük Hayat
+- İş Hayatı
+- Teknoloji
+- Yazılım
+- Mühendislik
+- Seyahat
+- Alışveriş
+- Ev
+- Aile
+- İnsan İlişkileri
+- Duygular
+- Sağlık
+- Fitness
+- Spor
+- Futbol
+- Basketbol
+- Eğitim
+- Akademik İngilizce
+- Finans
+- Ekonomi
+- İşletme
+- Pazarlama
+- İnsan Kaynakları
+- Üretim
+- Kalite
+- Otomotiv
+- Yiyecek & İçecek
+- Doğa
+- Hayvanlar
+- Şehir
+- Havalimanı
+- Otel
+- Restoran
+- İngilizcede En Çok Kullanılan Kelimeler
+
+Konu sistemi genişletilebilir ve yeni kategoriler sonradan kolaylıkla eklenebilir olsun.
+
+---
+
+# TEMEL ÇALIŞMA MANTIĞI
+
+Kullanıcı bir konu seçtiğinde sistem o konuya ait kelime havuzundan her gün yalnızca **1 İngilizce kelime** seçsin.
+
+Her günlük kelimede mutlaka şunlar bulunsun:
+
+## İngilizce kelime
+
+Örneğin:
+
+**Improve**
+
+## Türkçe karşılığı
+
+**Geliştirmek / İyileştirmek**
+
+## Türkçe okunuşa yakın telaffuz
+
+**İmpruv**
+
+## IPA telaffuzu
+
+**/ɪmˈpruːv/**
+
+## Kelime türü
+
+**Verb — Fiil**
+
+## Kısa İngilizce örnek cümle
+
+**I want to improve my English.**
+
+## Türkçe karşılığı
+
+**İngilizcemi geliştirmek istiyorum.**
+
+Ana kilit ekranı bildirimi fazla kalabalık olmaması için öncelikle şu üç bilgiyi göstermeli:
+
+**Improve**
+
+**Geliştirmek / İyileştirmek**
+
+**Okunuş: İmpruv**
+
+Daha fazla bilgi site açıldığında gösterilsin.
+
+---
+
+# EN ÖNEMLİ ÖZELLİK — GÜNLÜK OTOMATİK KELİME
+
+Kelime:
+
+# HER GÜN TÜRKİYE SAATİNE GÖRE DEĞİŞSİN.
+
+Timezone:
+
+# Europe/Istanbul
+
+kullan.
+
+Türkiye saati **00:00 geçtiğinde**, kullanıcının seçtiği aynı kategoriden yeni bir kelime aktif hale gelsin.
+
+Örneğin:
+
+19 Ekim:
+
+**Improve — Geliştirmek — İmpruv**
+
+20 Ekim 00:00 sonrasında:
+
+**Achieve — Başarmak — Eçiiv**
+
+21 Ekim:
+
+başka bir kelime.
+
+Kelime değişimi kullanıcının cihaz saatine kör biçimde bağlı olmasın.
+
+Temel zaman referansı:
+
+# EUROPE/ISTANBUL TIMEZONE
+
+olsun.
+
+Yaz/kış saati veya cihaz timezone farklarından kaynaklanan günlük kelime hatalarını önle.
+
+---
+
+# AYNI GÜN AYNI KELİME
+
+Kullanıcı:
+
+- sayfayı yenilese,
+- uygulamayı kapatıp açsa,
+- telefondan bilgisayara geçse
+
+aynı takvim gününde kelime rastgele değişmemeli.
+
+# DATE-BASED DAILY WORD SYSTEM
+
+kullan.
+
+Yani:
+
+`Konu + Türkiye tarihi`
+
+aynı kaldığı sürece gösterilen günlük kelime de aynı kalsın.
+
+---
+
+# KELİME TEKRARI ENGELLEME
+
+Aynı kategoride mümkün olduğunca daha önce gösterilmiş kelimeleri tekrar gösterme.
+
+Kullanıcının:
+
+# WORD HISTORY
+
+bilgisini sakla.
+
+Kelime havuzu tamamen tükenmeden eski kelimelere dönme.
+
+Havuz biterse yeni döngü başlatılabilir.
+
+---
+
+# KONU SEÇİMİ
+
+Ana ekranda kullanıcıya modern kartlardan oluşan:
+
+# “Ne öğrenmek istiyorsun?”
+
+bölümü göster.
+
+Her konu:
+
+ikon + konu adı
+
+ile temsil edilsin.
+
+Örneğin:
+
+💼 İş Hayatı
+
+💻 Teknoloji
+
+✈️ Seyahat
+
+❤️ İnsan İlişkileri
+
+🏋️ Fitness
+
+⚽ Futbol
+
+📚 Akademik İngilizce
+
+🏭 Üretim
+
+🚗 Otomotiv
+
+🍽️ Yiyecek & İçecek
+
+Kullanıcı bir konu seçsin.
+
+Seçim:
+
+local storage veya uygun kalıcı kullanıcı tercihi sistemiyle hatırlansın.
+
+Site yeniden açıldığında kullanıcıdan sürekli konu seçmesi istenmesin.
+
+---
+
+# KONU DEĞİŞTİRME
+
+Kullanıcı istediği zaman:
+
+# “Konuyu Değiştir”
+
+butonuna basabilsin.
+
+Yeni konu seçildiğinde o gün için yeni kategorinin günlük kelimesi gösterilsin.
+
+---
+
+# KİLİT EKRANI BİLDİRİMİ
+
+Bu projenin en önemli fonksiyonlarından biridir.
+
+Siteyi mümkünse:
+
+# PWA — PROGRESSIVE WEB APP
+
+olarak tasarla.
+
+Kullanıcı:
+
+- siteyi telefonunun ana ekranına ekleyebilsin,
+- uygulama gibi açabilsin,
+- bildirim izni verebilsin.
+
+Bildirim izni verildiğinde günlük kelime telefonun:
+
+# LOCK SCREEN NOTIFICATION
+
+alanında gösterilebilsin.
+
+Bildirim örneği:
+
+**🇬🇧 Günün İngilizce Kelimesi**
+
+**Improve**
+
+Geliştirmek / İyileştirmek
+
+🔊 Okunuş: İmpruv
+
+Bildirime dokunulduğunda doğrudan o günün kelime detay ekranı açılsın.
+
+---
+
+# ÖNEMLİ TEKNİK KURAL
+
+Normal bir web sitesinin iPhone veya Android kilit ekranı duvar kâğıdını izinsiz biçimde değiştirebildiğini varsayma.
+
+Asıl çözüm:
+
+# WEB PUSH NOTIFICATION + PWA
+
+üzerinden tasarlansın.
+
+iOS ve Android'in güncel web push / PWA izinleri ve kısıtlamalarına uygun davran.
+
+Bir özellik tarayıcı veya işletim sistemi nedeniyle mümkün değilse sahte biçimde uygulanmış gibi gösterme.
+
+Gerçek teknik sınırlamayı doğru yönet ve mümkün olan en yakın kullanıcı deneyimini oluştur.
+
+---
+
+# BİLDİRİM İZNİ ONBOARDING
+
+Site ilk açıldığı anda agresif şekilde notification permission isteme.
+
+Önce kullanıcıya sistemi açıkla.
+
+Örneğin:
+
+## “Her gün yeni bir kelimeyi kilit ekranında görmek ister misin?”
+
+Alt açıklama:
+
+**Bildirimleri etkinleştirerek seçtiğin konudan her gün yeni bir İngilizce kelime öğrenebilirsin.**
+
+Buton:
+
+# 🔔 Günlük Kelimeleri Aç
+
+Kullanıcı buna bastığında notification permission sürecini başlat.
+
+---
+
+# BİLDİRİM SAATİ
+
+Varsayılan hedef:
+
+# 00:05 — EUROPE/ISTANBUL
+
+olsun.
+
+00:00'dan hemen birkaç dakika sonra yeni günün kelimesi hazır olsun.
+
+Ancak kullanıcıya ileride:
+
+# Bildirim Saati
+
+seçme özelliği sun.
+
+Örneğin:
+
+00:05
+
+07:00
+
+08:00
+
+09:00
+
+12:00
+
+18:00
+
+21:00
+
+veya özel saat.
+
+---
+
+# ZAMANLANMIŞ PUSH MİMARİSİ
+
+Sadece kullanıcı siteyi açtığında çalışan JavaScript timer'a güvenme.
+
+Site kapalıyken de günlük bildirim gerekiyorsa:
+
+uygun bir:
+
+# SERVER-SIDE SCHEDULER
++
+# WEB PUSH SERVICE
++
+# SERVICE WORKER
+
+mimarisi kullan.
+
+Türkiye saati esas alınarak günlük kelime bildirimlerini gönder.
+
+---
+
+# OFFLINE / PWA
+
+PWA mümkün olduğunca:
+
+- installable,
+- responsive,
+- fast,
+- offline-friendly
+
+olsun.
+
+Service Worker kullan.
+
+Son görüntülenen günlük kelime offline durumda da görülebilsin.
+
+---
+
+# ANA SAYFA
+
+Ana ekranda büyük şekilde:
+
+# BUGÜNÜN KELİMESİ
+
+göster.
+
+Örnek tasarım:
+
+---
+
+### 19 EKİM PAZARTESİ
+
+# IMPROVE
+
+**Geliştirmek • İyileştirmek**
+
+🔊 **İmpruv**
+
+/ɪmˈpruːv/
+
+**Verb**
+
+“I want to improve my English.”
+
+“İngilizcemi geliştirmek istiyorum.”
+
+🔊 Dinle
+
+♡ Öğrendim
+
+---
+
+---
+
+# SESLİ TELAFFUZ
+
+Kelimenin yanında:
+
+# 🔊
+
+butonu olsun.
+
+Kullanıcı bastığında İngilizce kelimenin doğal telaffuzunu duyabilsin.
+
+Mümkünse:
+
+- güvenilir pronunciation audio
+veya
+- browser speech synthesis
+
+kullan.
+
+Tercihen:
+
+# en-US
+veya
+# en-GB
+
+seçeneği sun.
+
+---
+
+# TÜRKÇE OKUNUŞ
+
+Türkçe okunuş:
+
+kullanıcının İngilizce telaffuzu yaklaşık öğrenmesini kolaylaştırmak için yardımcı bilgi olsun.
+
+Ancak bunun fonetik olarak kusursuz bir gösterim olmadığını sistem içinde göz önünde bulundur.
+
+Asıl doğru telaffuz için:
+
+# IPA + AUDIO
+
+kullan.
+
+---
+
+# “ÖĞRENDİM” BUTONU
+
+Kullanıcı:
+
+# ✓ Öğrendim
+
+butonuna basabilsin.
+
+Bu kelime:
+
+# Öğrendiklerim
+
+alanına kaydedilsin.
+
+---
+
+# KELİME GEÇMİŞİ
+
+Alt menüde:
+
+# Geçmiş
+
+bölümü olsun.
+
+Örneğin:
+
+### 19 Ekim
+Improve  
+Geliştirmek
+
+### 18 Ekim
+Develop  
+Geliştirmek
+
+### 17 Ekim
+Efficient  
+Verimli
+
+şeklinde geçmiş günlük kelimeler görülebilsin.
+
+---
+
+# ÖĞRENDİKLERİM
+
+Ayrı ekran:
+
+# Öğrendiğim Kelimeler
+
+olsun.
+
+Kullanıcı öğrendi olarak işaretlediği kelimeleri görebilsin.
+
+---
+
+# FAVORİLER
+
+Kullanıcı istediği kelimeyi:
+
+# ♡ Favoriye Ekle
+
+yapabilsin.
+
+Ayrı favoriler ekranı oluştur.
+
+---
+
+# İSTATİSTİKLER
+
+Basit fakat motive edici:
+
+# Öğrenme İstatistikleri
+
+ekranı oluştur.
+
+Göster:
+
+**Toplam öğrenilen:** 46
+
+**Bu ay:** 19
+
+**Aralıksız öğrenme:** 12 gün
+
+**Favoriler:** 8
+
+---
+
+# STREAK
+
+Kullanıcı her gün uygulamayı açtığında veya kelimeyi “öğrendim” olarak işaretlediğinde:
+
+# LEARNING STREAK
+
+takip edilebilir.
+
+Ancak kullanıcı bir gün kaçırdığında suçlayıcı/gamification baskısı oluşturma.
+
+---
+
+# KELİME DETAY SAYFASI
+
+Kelimeye dokunulduğunda detay sayfası açılsın.
+
+Göster:
+
+# Improve
+
+**Türkçesi:** Geliştirmek, iyileştirmek
+
+**Okunuş:** İmpruv
+
+**IPA:** /ɪmˈpruːv/
+
+**Tür:** Verb
+
+**Seviye:** B1
+
+**Örnek:**
+
+I want to improve my English.
+
+İngilizcemi geliştirmek istiyorum.
+
+**Benzer kelimeler:**
+
+develop  
+enhance
+
+**Zıt anlam:**
+
+worsen
+
+Bilgiler yalnız dil açısından doğru olduğundan emin olunan kelimelerde gösterilsin.
+
+---
+
+# CEFR SEVİYESİ
+
+Kelime havuzlarında mümkünse:
+
+- A1
+- A2
+- B1
+- B2
+- C1
+- C2
+
+seviyeleri tutulabilsin.
+
+Kullanıcı ayarlardan:
+
+# Başlangıç
+# Orta
+# İleri
+
+seviyesi seçebilsin.
+
+Seviye filtrelemesi kategoriyle birlikte çalışsın.
+
+---
+
+# KELİME VERİ MODELİ
+
+Her kelime için mümkünse aşağıdaki veri yapısını oluştur:
+
+- id
+- word
+- turkishMeaning
+- pronunciationTR
+- ipa
+- partOfSpeech
+- cefrLevel
+- category
+- exampleSentenceEN
+- exampleSentenceTR
+- synonyms
+- antonyms
+- audioSource
+
+---
+
+# KELİME KALİTESİ
+
+Kelime havuzunu otomatik rastgele AI üretimine bırakma.
+
+Kelimeler:
+
+- doğru İngilizce,
+- doğru Türkçe karşılık,
+- doğru kelime türü,
+- doğru örnek kullanım
+
+içermeli.
+
+Uydurma kelime veya hatalı çeviri üretme.
+
+---
+
+# AYARLAR
+
+Ayarlar ekranında:
+
+## Seçili Konu
+
+## İngilizce Seviyesi
+
+## Bildirim Aç/Kapat
+
+## Bildirim Saati
+
+## Telaffuz
+
+- Amerikan İngilizcesi
+- İngiliz İngilizcesi
+
+## Tema
+
+- Sistem
+- Açık
+- Koyu
+
+bulunsun.
+
+---
+
+# ALT NAVİGASYON
+
+Mobilde alt menü:
+
+### 🏠 Bugün
+
+### 📚 Konular
+
+### 🕘 Geçmiş
+
+### ❤️ Favoriler
+
+### ⚙️ Ayarlar
+
+şeklinde olabilir.
+
+---
+
+# TASARIM
+
+Site:
+
+# MOBILE-FIRST
+
+tasarlansın.
+
+Öncelik telefon ekranıdır.
+
+Estetik:
+
+- modern
+- premium
+- sade
+- minimal
+- motive edici
+- eğitim uygulaması hissinde
+
+olsun.
+
+Duolingo benzeri çocukça/gamified bir görünümü birebir taklit etme.
+
+Daha yetişkin ve premium bir dil öğrenme uygulaması hissi ver.
+
+---
+
+# GÜNLÜK KELİME KARTI
+
+Sayfanın merkezindeki kelime kartı en güçlü görsel unsur olsun.
+
+Büyük İngilizce kelime.
+
+Altında Türkçe anlam.
+
+Altında telaffuz.
+
+Çok fazla görsel karmaşa oluşturma.
+
+---
+
+# DARK MODE
+
+Telefon kullanımına uygun gerçek dark mode oluştur.
+
+---
+
+# TYPOGRAPHY
+
+İngilizce kelime:
+
+büyük ve güçlü.
+
+Türkçe anlam:
+
+orta.
+
+Telaffuz:
+
+ayrıştırılmış.
+
+Örnek:
+
+# IMPROVE
+
+**Geliştirmek**
+
+🔊 *İmpruv*
+
+---
+
+# ANIMASYON
+
+Günün kelimesi değiştiğinde:
+
+çok hafif fade/slide animation kullanılabilir.
+
+Aşırı animasyon kullanma.
+
+---
+
+# ACCESSIBILITY
+
+- yeterli kontrast
+- büyük dokunma alanları
+- okunabilir font
+- screen-reader uyumu
+- semantic HTML
+
+kullan.
+
+---
+
+# RESPONSIVE
+
+Telefon birinci öncelik.
+
+Ancak:
+
+- tablet
+- desktop
+
+ekranlarında da düzgün çalışsın.
+
+---
+
+# VERİ KALICILIĞI
+
+En azından şunları sakla:
+
+- seçilen kategori
+- seviye
+- notification preference
+- notification time
+- learned words
+- favorites
+- history
+- streak.
+
+Kullanıcı hesabı yoksa local storage/IndexedDB gibi uygun yöntem kullanılabilir.
+
+---
+
+# HESAP SİSTEMİ
+
+İlk sürüm için hesap zorunlu olmasın.
+
+Ancak mimari gelecekte:
+
+- Google login
+- Apple login
+- cihazlar arası senkronizasyon
+
+eklenebilecek şekilde tasarlanabilir.
+
+---
+
+# GÜNLÜK KELİME ALGORİTMASI
+
+Kelime seçimini tamamen:
+
+`Math.random()`
+
+ile yapma.
+
+Aynı kullanıcı aynı gün sürekli başka kelime görmemeli.
+
+Mantık:
+
+# DATE
++
+# CATEGORY
++
+# LEVEL
++
+# USER HISTORY
+
+kombinasyonuyla çalışsın.
+
+---
+
+# GÜN DEĞİŞİMİ ALGORİTMASI
+
+Türkiye takvim tarihini:
+
+# Europe/Istanbul
+
+timezone'u üzerinden hesapla.
+
+Örneğin:
+
+`2026-10-19`
+
+gün kimliği olarak kullanılabilir.
+
+00:00 geçtikten sonra:
+
+`2026-10-20`
+
+olur ve yeni daily word aktif hale gelir.
+
+---
+
+# NOTIFICATION FAILURE FALLBACK
+
+Web Push desteklenmiyorsa:
+
+site bozulmamalı.
+
+Kullanıcıya açıkça:
+
+**“Bu cihaz/tarayıcı kilit ekranı bildirimlerini desteklemiyor. Günün kelimesini siteyi açarak takip edebilirsin.”**
+
+mesajı göster.
+
+---
+
+# IOS / ANDROID
+
+iOS ve Android'in Web Push/PWA davranışları aynıymış gibi kodlama.
+
+Her platformun güncel teknik gereksinimlerini dikkate al.
+
+---
+
+# PERMISSION DENIED
+
+Kullanıcı notification permission reddederse:
+
+sürekli tekrar isteme.
+
+Ayarlar ekranından yeniden etkinleştirme yolunu açıklayabilirsin.
+
+---
+
+# PRIVACY
+
+Bildirim sistemi için gerekli minimum veriyi kullan.
+
+Gereksiz:
+
+- konum
+- rehber
+- fotoğraf
+- mikrofon
+
+izni isteme.
+
+---
+
+# NO ADS
+
+İlk tasarımda reklam bulunmasın.
+
+---
+
+# NO DISTRACTIONS
+
+Ana amaç:
+
+# HER GÜN 1 KELİME.
+
+Siteyi gereksiz özelliklerle kalabalıklaştırma.
+
+---
+
+# ANA KULLANICI AKIŞI
+
+İlk kullanım:
+
+# SITEYI AÇ
+↓
+# SEVİYENİ SEÇ
+↓
+# KONU SEÇ
+↓
+# BUGÜNÜN KELİMESİNİ GÖR
+↓
+# GÜNLÜK BİLDİRİMİ ETKİNLEŞTİR
+↓
+# PWA'YI TELEFONA EKLE
+↓
+# HER GÜN YENİ KELİME ÖĞREN.
+
+Sonraki kullanım:
+
+# KİLİT EKRANI BİLDİRİMİ
+↓
+# KELİME
+↓
+# BİLDİRİME DOKUN
+↓
+# ÖRNEK CÜMLE / TELAFFUZ
+↓
+# ÖĞRENDİM.
+
+---
+
+# ÖRNEK KİLİT EKRANI BİLDİRİMİ
+
+🇬🇧 **Günün Kelimesi**
+
+**Achieve**
+
+Başarmak • Elde etmek
+
+🔊 Okunuş: **Eçiiv**
+
+Bildirime dokun →
+
+kelime detay ekranı açılsın.
+
+---
+
+# ÖRNEK ANA SAYFA
+
+Üst:
+
+**Günaydın 👋**
+
+**Bugünün İngilizce Kelimesi**
+
+Ana kart:
+
+# ACHIEVE
+
+**Başarmak • Elde etmek**
+
+🔊 **Eçiiv**
+
+/əˈtʃiːv/
+
+**Verb • B1**
+
+> I want to achieve my goals.
+
+Hedeflerime ulaşmak istiyorum.
+
+Butonlar:
+
+🔊 Dinle
+
+✓ Öğrendim
+
+♡ Favori
+
+Alt:
+
+**🔥 12 günlük öğrenme serisi**
+
+---
+
+# HATA SENARYOLARI
+
+Mutlaka ele al:
+
+- notification permission reddedildi
+- PWA yüklenmedi
+- push subscription expired
+- kullanıcı timezone değiştirdi
+- cihaz uzun süre offline kaldı
+- kategori değiştirildi
+- kelime havuzu tükendi
+- service worker update oldu
+- bildirim gönderilemedi
+- local data temizlendi.
+
+---
+
+# TEST SENARYOLARI
+
+Test et:
+
+### 23:59 Türkiye saati
+
+eski kelime.
+
+### 00:01 Türkiye saati
+
+yeni kelime.
+
+### Sayfa refresh
+
+kelime değişmemeli.
+
+### Tarayıcı kapanıp açıldı
+
+aynı gün aynı kelime.
+
+### Konu değişti
+
+yeni kategoriden günlük kelime.
+
+### Ertesi gün
+
+aynı konudan farklı kelime.
+
+### Bildirim izni açık
+
+push notification.
+
+### Bildirim izni kapalı
+
+uygun fallback.
+
+---
+
+# KALİTE KONTROLÜ
+
+Canlıya almadan önce doğrula:
+
+### Günlük kelime gerçekten Türkiye saatine göre değişiyor mu?
+
+### Aynı gün refresh ile değişmiyor mu?
+
+### Aynı kelime gereksiz tekrarlanmıyor mu?
+
+### Türkçe karşılık doğru mu?
+
+### Türkçe okunuş anlaşılır mı?
+
+### IPA doğru mu?
+
+### Örnek cümle doğru mu?
+
+### Bildirim gerçekten kullanıcı izin verdiyse çalışıyor mu?
+
+### iOS ve Android fallback'leri doğru mu?
+
+### PWA kurulabiliyor mu?
+
+### Mobil ekran kusursuz mu?
+
+---
+
+# PROJE PRENSİPLERİ
+
+**MOBILE FIRST**
+
+**ONE WORD A DAY**
+
+**EUROPE/ISTANBUL TIME**
+
+**ONE DAY = ONE STABLE WORD**
+
+**TOPIC-BASED LEARNING**
+
+**NO UNNECESSARY REPETITION**
+
+**CORRECT TRANSLATION**
+
+**AUDIO + IPA + TURKISH PRONUNCIATION**
+
+**PWA + WEB PUSH**
+
+**LOCK-SCREEN NOTIFICATION WHEN SUPPORTED**
+
+**OFFLINE FRIENDLY**
+
+**MINIMAL UI**
+
+**NO FAKE MOBILE CAPABILITY**
+
+---
+
+# NİHAİ TALİMAT
+
+Ortaya yalnız güzel görünen statik bir demo çıkarma.
+
+Gerçek çalışan bir ürün oluştur.
+
+Özellikle:
+
+# KONU SEÇİMİ
++
+# GÜNLÜK KELİME MOTORU
++
+# TÜRKİYE SAATİNE GÖRE GÜN DEĞİŞİMİ
++
+# KELİME GEÇMİŞİ
++
+# FAVORİLER
++
+# ÖĞRENDİM DURUMU
++
+# PWA
++
+# WEB PUSH
++
+# KİLİT EKRANI BİLDİRİMİ
++
+# BİLDİRİM ZAMANLAMASI
+
+gerçek fonksiyonlar olarak çalışsın.
+
+Bir işlev normal web teknolojisinin güvenlik veya işletim sistemi sınırları nedeniyle gerçekleştirilemiyorsa sahte olarak çalışıyor gibi gösterme.
+
+Bunun yerine desteklenen en doğru yöntemi uygula ve kullanıcıya ilgili sınırlamayı anlaşılır biçimde göster.
+
+Bu sitenin nihai amacı:
+
+> **Kullanıcının herhangi bir ek çaba göstermeden, seçtiği bir konuda her gün telefonunda yeni bir İngilizce kelimeyle karşılaşması ve zaman içinde düzenli biçimde kelime hazinesini geliştirmesidir.**

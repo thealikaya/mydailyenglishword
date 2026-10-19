@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import ts from 'typescript';
+import {createECDH,randomBytes,hkdfSync,createDecipheriv,generateKeyPairSync,verify} from 'node:crypto';
+const compile=s=>ts.transpileModule(s,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText;
+const load=s=>import('data:text/javascript;base64,'+Buffer.from(compile(s)).toString('base64'));
+const {categories,words,istanbulDate,dailyWord,pool}=await load(fs.readFileSync('lib/words.ts','utf8'));
+assert.equal(istanbulDate(new Date('2026-10-19T20:59:00Z')),'2026-10-19');
+assert.equal(istanbulDate(new Date('2026-10-19T21:01:00Z')),'2026-10-20');
+assert.equal(categories.length,34);assert.equal(words.length,128);assert.equal(new Set(words.map(w=>w.id)).size,128);
+for(const c of categories)for(const level of ['all','A','B','C']){const p=pool(c.id,level);assert.ok(p.length>=2);const sequence=Array.from({length:p.length},(_,i)=>dailyWord(c.id,level,new Date(Date.UTC(2026,9,19+i)).toISOString().slice(0,10)).id);assert.equal(new Set(sequence).size,p.length);assert.equal(dailyWord(c.id,level,'2026-10-19').id,dailyWord(c.id,level,'2026-10-19').id);assert.notEqual(dailyWord(c.id,level,'2026-10-19').id,dailyWord(c.id,level,'2026-10-20').id);}
+for(const w of words)for(const key of ['word','turkishMeaning','pronunciationTR','ipa','partOfSpeech','cefrLevel','exampleSentenceEN','exampleSentenceTR'])assert.ok(w[key],w.id+' '+key);
+const {publicKey,privateKey}=generateKeyPairSync('ec',{namedCurve:'prime256v1'});const jwk=publicKey.export({format:'jwk'});const vapid=Buffer.concat([Buffer.from([4]),Buffer.from(jwk.x,'base64url'),Buffer.from(jwk.y,'base64url')]).toString('base64url');
+globalThis.__env={VAPID_PRIVATE_JWK:JSON.stringify(privateKey.export({format:'jwk'})),VAPID_PUBLIC_KEY:vapid};
+const {sendPush,validSubscription}=await load(fs.readFileSync('lib/push.ts','utf8').replace("import {env} from 'cloudflare:workers';","const env = globalThis.__env;"));
+const receiver=createECDH('prime256v1');receiver.generateKeys();const auth=randomBytes(16);const sub={endpoint:'https://fcm.googleapis.com/fcm/send/test',keys:{p256dh:receiver.getPublicKey().toString('base64url'),auth:auth.toString('base64url')}};
+assert.ok(validSubscription(sub));assert.equal(validSubscription({...sub,endpoint:'https://localhost/private'}),false);
+globalThis.fetch=async(url,opts)=>{const jwt=opts.headers.Authorization.split('t=')[1].split(',')[0];const parts=jwt.split('.');assert.ok(verify('sha256',Buffer.from(parts[0]+'.'+parts[1]),{key:publicKey,dsaEncoding:'ieee-p1363'},Buffer.from(parts[2],'base64url')));assert.equal(JSON.parse(Buffer.from(parts[1],'base64url')).aud,'https://fcm.googleapis.com');const body=opts.body;const salt=body.subarray(0,16);assert.equal(body.readUInt32BE(16),4096);const sender=body.subarray(21,86);const ikm=Buffer.from(hkdfSync('sha256',receiver.computeSecret(sender),auth,Buffer.concat([Buffer.from('WebPush: info\0'),receiver.getPublicKey(),sender]),32));const key=Buffer.from(hkdfSync('sha256',ikm,salt,Buffer.from('Content-Encoding: aes128gcm\0'),16));const nonce=Buffer.from(hkdfSync('sha256',ikm,salt,Buffer.from('Content-Encoding: nonce\0'),12));const cipher=createDecipheriv('aes-128-gcm',key,nonce);cipher.setAuthTag(body.subarray(-16));const plaintext=Buffer.concat([cipher.update(body.subarray(86,-16)),cipher.final()]);assert.equal(plaintext.at(-1),2);assert.deepEqual(JSON.parse(plaintext.subarray(0,-1)),{title:'Improve',body:'Geliştirmek'});return {status:201};};
+assert.equal(await sendPush(sub,{title:'Improve',body:'Geliştirmek'}),201);
+console.log('PASS: Istanbul midnight, deterministic selection, 136 category-level cycles, 128 complete records, VAPID signature, encrypted Web Push roundtrip, endpoint validation.');

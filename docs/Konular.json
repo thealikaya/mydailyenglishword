@@ -1,0 +1,206 @@
+[
+  {
+    "id": "daily",
+    "name": "Günlük Hayat",
+    "icon": "☀️",
+    "pack": "life"
+  },
+  {
+    "id": "work",
+    "name": "İş Hayatı",
+    "icon": "💼",
+    "pack": "work"
+  },
+  {
+    "id": "tech",
+    "name": "Teknoloji",
+    "icon": "💻",
+    "pack": "tech"
+  },
+  {
+    "id": "software",
+    "name": "Yazılım",
+    "icon": "⌘",
+    "pack": "tech"
+  },
+  {
+    "id": "engineering",
+    "name": "Mühendislik",
+    "icon": "⚙️",
+    "pack": "industry"
+  },
+  {
+    "id": "travel",
+    "name": "Seyahat",
+    "icon": "✈️",
+    "pack": "travel"
+  },
+  {
+    "id": "shopping",
+    "name": "Alışveriş",
+    "icon": "🛍️",
+    "pack": "shopping"
+  },
+  {
+    "id": "home",
+    "name": "Ev",
+    "icon": "🏡",
+    "pack": "life"
+  },
+  {
+    "id": "family",
+    "name": "Aile",
+    "icon": "🤍",
+    "pack": "people"
+  },
+  {
+    "id": "relations",
+    "name": "İnsan İlişkileri",
+    "icon": "💬",
+    "pack": "people"
+  },
+  {
+    "id": "feelings",
+    "name": "Duygular",
+    "icon": "☁️",
+    "pack": "people"
+  },
+  {
+    "id": "health",
+    "name": "Sağlık",
+    "icon": "🌿",
+    "pack": "health"
+  },
+  {
+    "id": "fitness",
+    "name": "Fitness",
+    "icon": "🏋️",
+    "pack": "fitness"
+  },
+  {
+    "id": "sport",
+    "name": "Spor",
+    "icon": "🏅",
+    "pack": "sport"
+  },
+  {
+    "id": "football",
+    "name": "Futbol",
+    "icon": "⚽",
+    "pack": "sport"
+  },
+  {
+    "id": "basketball",
+    "name": "Basketbol",
+    "icon": "🏀",
+    "pack": "sport"
+  },
+  {
+    "id": "education",
+    "name": "Eğitim",
+    "icon": "📚",
+    "pack": "education"
+  },
+  {
+    "id": "academic",
+    "name": "Akademik İngilizce",
+    "icon": "🎓",
+    "pack": "education"
+  },
+  {
+    "id": "finance",
+    "name": "Finans",
+    "icon": "↗",
+    "pack": "finance"
+  },
+  {
+    "id": "economy",
+    "name": "Ekonomi",
+    "icon": "📊",
+    "pack": "finance"
+  },
+  {
+    "id": "business",
+    "name": "İşletme",
+    "icon": "🏢",
+    "pack": "work"
+  },
+  {
+    "id": "marketing",
+    "name": "Pazarlama",
+    "icon": "📣",
+    "pack": "marketing"
+  },
+  {
+    "id": "hr",
+    "name": "İnsan Kaynakları",
+    "icon": "👥",
+    "pack": "work"
+  },
+  {
+    "id": "production",
+    "name": "Üretim",
+    "icon": "🏭",
+    "pack": "industry"
+  },
+  {
+    "id": "quality",
+    "name": "Kalite",
+    "icon": "✓",
+    "pack": "industry"
+  },
+  {
+    "id": "automotive",
+    "name": "Otomotiv",
+    "icon": "🚗",
+    "pack": "auto"
+  },
+  {
+    "id": "food",
+    "name": "Yiyecek & İçecek",
+    "icon": "🍋",
+    "pack": "food"
+  },
+  {
+    "id": "nature",
+    "name": "Doğa",
+    "icon": "🌳",
+    "pack": "nature"
+  },
+  {
+    "id": "animals",
+    "name": "Hayvanlar",
+    "icon": "🐾",
+    "pack": "nature"
+  },
+  {
+    "id": "city",
+    "name": "Şehir",
+    "icon": "🏙️",
+    "pack": "travel"
+  },
+  {
+    "id": "airport",
+    "name": "Havalimanı",
+    "icon": "🛫",
+    "pack": "travel"
+  },
+  {
+    "id": "hotel",
+    "name": "Otel",
+    "icon": "🛎️",
+    "pack": "travel"
+  },
+  {
+    "id": "restaurant",
+    "name": "Restoran",
+    "icon": "🍽️",
+    "pack": "food"
+  },
+  {
+    "id": "common",
+    "name": "En Çok Kullanılanlar",
+    "icon": "✨",
+    "pack": "life"
+  }
+]
